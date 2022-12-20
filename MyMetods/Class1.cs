@@ -12,7 +12,7 @@ public static class Class1
     // Печать массива даблов
     public static void PrintArray (double [] array1)
     {
-        Console.WriteLine($"[{String.Join(" ,", array1)}]");
+        Console.WriteLine($"[{String.Join("; ", array1)}]");
     }
 
     public static void PrintArray (String [] array1)
@@ -419,6 +419,7 @@ public static class Class1
         }
         
     }
+    
 
     // Создание двухмерного массива размерами от пользователя и заполняющий рандомными натуральными числами
     public static int [,] Generation2DArrayInteger(int [] numberLinesAndColumns, int numberMin, int numberMax)
