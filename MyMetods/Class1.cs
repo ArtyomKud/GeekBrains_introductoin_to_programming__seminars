@@ -3,11 +3,13 @@ public static class Class1
 
 
 {
+    // Печать массива интов
     public static void PrintArray (int [] array1)
     {
         Console.WriteLine($"[{String.Join(" ,", array1)}]");
     }
 
+    // Печать массива даблов
     public static void PrintArray (double [] array1)
     {
         Console.WriteLine($"[{String.Join(" ,", array1)}]");
@@ -19,7 +21,7 @@ public static class Class1
     }
 
 
-
+    // Получение данных (дабл) от пользователя через консоль в одну строчку через пробел
     public static double [] InputDataSeparatedSpaceOneLineDouble()
     {
          
@@ -101,6 +103,7 @@ public static class Class1
     
     }
 
+    // Получение данных (дабл) от пользователя через консоль в одну строчку через пробел с передачей сообщений в метод
     public static double [] InputDataSeparatedSpaceOneLineDouble(String message)
     {
          
@@ -182,6 +185,8 @@ public static class Class1
     
     }
 
+
+    // Получение данных (инт) от пользователя через консоль в одну строчку через пробел с передачей сообщения в метод
     public static int [] InputDataSeparatedSpaceOneLineInteger(String message)
     {
          
@@ -263,6 +268,8 @@ public static class Class1
     
     }
 
+
+    // Получение данных (инт) от пользователя через консоль в одну строчку через пробел
     public static int [] InputDataSeparatedSpaceOneLineInteger()
     {
          
@@ -344,6 +351,7 @@ public static class Class1
     
     }
 
+    // одсчет положительных чисел в массиве
     public static int SummPositiveNumber(int [] array)
     {
         int count = 0;
