@@ -20,6 +20,22 @@ public static class Class1
         Console.WriteLine($"[{String.Join(" ,", array1)}]");
     }
 
+    // Печать 2D массива даблов
+    public static void PrintArray (double [,] array1)
+    {
+        for (int i = 0; i <array1.GetLength(0); i++)
+        {
+            for (int j = 0; j < array1.GetLength(1); j++)
+            {
+                Console.Write(array1[i,j]+" " );
+
+            }
+            Console.WriteLine();
+        }
+        
+    }
+
+
 
     // Получение данных (дабл) от пользователя через консоль в одну строчку через пробел
     public static double [] InputDataSeparatedSpaceOneLineDouble()
@@ -351,7 +367,7 @@ public static class Class1
     
     }
 
-    // одсчет положительных чисел в массиве
+    // Подсчет положительных чисел в массиве
     public static int SummPositiveNumber(int [] array)
     {
         int count = 0;
@@ -363,6 +379,56 @@ public static class Class1
             }
         }
         return count;
+    }
+
+    // Создание двухмерного массива размерами от пользователя и заполняющий рандомными вещественными числами
+    public static double [,] Generation2DArray(int [] numberLinesAndColumns, int numberMin, int numberMax)
+    {
+        if (numberLinesAndColumns.Length != 2 | numberLinesAndColumns[0] <1 | numberLinesAndColumns[1] < 1)
+        {
+            throw new ArgumentException("Введены неверные параметры массива");
+        }
+
+        else 
+        {
+            
+            double [,] outArray = new double[numberLinesAndColumns[0], numberLinesAndColumns[1]];
+            for(int i = 0; i < outArray.GetLength(0); i++)
+            {
+                for(int j = 0; j < outArray.GetLength(1); j++)
+                {
+                    outArray[i,j] = GenerationRandomDoubleFractional(numberMin, numberMax);
+                }
+            }
+            return outArray;
+        }
+        
+    }
+
+    //Метод генерирующий рандомные числа (инт)
+    public static int GenerationRandomInteger(int numberMin, int numberMax)
+    {
+        Random random = new Random();
+        int outRandom = random.Next(numberMin, numberMax+1);
+        return outRandom;
+    }
+
+    //Метод генерирующий рандомные числа (дабл)
+    public static double GenerationRandomDouble(int numberMin, int numberMax)
+    {
+        Random random = new Random();
+        double outRandom = (double)(random.Next(numberMin, numberMax+1));
+        return outRandom;
+    }
+
+    //Метод генерирующий рандомные дробные числа (дабл)
+    public static double GenerationRandomDoubleFractional(int numberMin, int numberMax)
+    {
+        Random random = new Random();
+        double divider = 10;
+        numberMax *=10;
+        double outData = Convert.ToDouble(random.Next(numberMin, numberMax + 1)/divider);
+        return outData;
     }
     
 
