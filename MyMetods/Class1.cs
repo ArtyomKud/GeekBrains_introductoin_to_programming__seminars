@@ -35,6 +35,21 @@ public static class Class1
         
     }
 
+    // Печать 2D массива интов
+    public static void PrintArray (int [,] array1)
+    {
+        for (int i = 0; i <array1.GetLength(0); i++)
+        {
+            for (int j = 0; j < array1.GetLength(1); j++)
+            {
+                Console.Write(array1[i,j]+" " );
+
+            }
+            Console.WriteLine();
+        }
+        
+    }
+
 
 
     // Получение данных (дабл) от пользователя через консоль в одну строчку через пробел
@@ -405,6 +420,30 @@ public static class Class1
         
     }
 
+    // Создание двухмерного массива размерами от пользователя и заполняющий рандомными натуральными числами
+    public static int [,] Generation2DArrayInteger(int [] numberLinesAndColumns, int numberMin, int numberMax)
+    {
+        if (numberLinesAndColumns.Length != 2 | numberLinesAndColumns[0] <1 | numberLinesAndColumns[1] < 1)
+        {
+            throw new ArgumentException("Введены неверные параметры массива");
+        }
+
+        else 
+        {
+            
+            int [,] outArray = new int[numberLinesAndColumns[0], numberLinesAndColumns[1]];
+            for(int i = 0; i < outArray.GetLength(0); i++)
+            {
+                for(int j = 0; j < outArray.GetLength(1); j++)
+                {
+                    outArray[i,j] = GenerationRandomInteger(numberMin, numberMax);
+                }
+            }
+            return outArray;
+        }
+        
+    }
+
     //Метод генерирующий рандомные числа (инт)
     public static int GenerationRandomInteger(int numberMin, int numberMax)
     {
@@ -429,6 +468,25 @@ public static class Class1
         numberMax *=10;
         double outData = Convert.ToDouble(random.Next(numberMin, numberMax + 1)/divider);
         return outData;
+    }
+
+    //Поиск значения по позиции в 2D массиве интов
+    public static String SearchForValueByPosition (int[,] inputArray, int [] position, out int meaning)
+    {
+        String answer;
+        if (position[0] < 1 | position[1] < 1 | position[0] >= inputArray.GetLength(0) |
+            position[1] >= inputArray.GetLength(1))
+        {
+            throw new ArgumentException("Введены параметры несуществующей позиции");
+        }
+        else
+        {
+        
+            answer = "Позиция существует: ";
+        }
+        meaning =inputArray[position[0], position[1]];
+        return answer;
+            
     }
     
 
