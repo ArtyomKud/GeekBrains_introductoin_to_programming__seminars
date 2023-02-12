@@ -21,7 +21,7 @@ while(true)
     }
     
 }
-Console.WriteLine(inputNumber);
+
 PrintNumbersFrom1ToN(inputNumber);
 
 void PrintNumbersFrom1ToN (int inputNumberTemp2)
@@ -31,13 +31,14 @@ void PrintNumbersFrom1ToN (int inputNumberTemp2)
         Console.WriteLine("Число не является натуральным!!!");
         return;
     }
+    Console.Write(inputNumberTemp2 + " ");
     inputNumberTemp2-=1;
-    if(inputNumberTemp2<=1)
+    if(inputNumberTemp2 < 1)
     {
         return;
 
     }
-    Console.Write(inputNumberTemp2 + " ");
+    
     PrintNumbersFrom1ToN(inputNumberTemp2);
 
 
